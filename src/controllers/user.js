@@ -44,7 +44,7 @@ exports.signUp = async (req, res) => {
 		if (checkUser) {
 			return res.json({
 				success: false,
-				message: 'user allready exist',
+				message: 'User allready exist',
 			});
 		}
 
@@ -56,7 +56,7 @@ exports.signUp = async (req, res) => {
 		if (!referreduser) {
 			res.json({
 				success: false,
-				message: 'not found any referredUser with given referralCode',
+				message: 'Not found any referredUser with given referralCode',
 			});
 		} else {
 			let bonus = 0;
@@ -91,7 +91,7 @@ exports.signUp = async (req, res) => {
 		console.log(error);
 		res.json({
 			success: false,
-			message: 'found some error while creat an account',
+			message: 'Found some error while creat an account',
 		});
 	}
 };
@@ -109,7 +109,7 @@ exports.logIn = async (req, res) => {
 		if (!email || !password) {
 			return res.json({
 				success: false,
-				message: 'please full fill all the details very carefully',
+				message: 'Please full fill all the details very carefully',
 			});
 		}
 
@@ -120,7 +120,7 @@ exports.logIn = async (req, res) => {
 		if (!userExist) {
 			return res.json({
 				success: false,
-				message: 'user not exist please signUp first',
+				message: 'User not exist please signUp first',
 			});
 		}
 
@@ -147,7 +147,7 @@ exports.logIn = async (req, res) => {
 
 			res.cookie('token', token, Options).json({
 				success: true,
-				message: 'user login successfully',
+				message: 'User login successfully',
 				data: {
 					...userExist._doc,
 					token,
@@ -156,14 +156,14 @@ exports.logIn = async (req, res) => {
 		} else {
 			res.json({
 				success: false,
-				message: 'user not login successfully',
+				message: 'User not login successfully',
 			});
 		}
 	} catch (error) {
 		console.log(error);
 		res.json({
 			success: false,
-			message: 'found some error in logIn acccount',
+			message: 'Uound some error in logIn acccount',
 		});
 	}
 };
@@ -199,7 +199,7 @@ exports.getAllReferredUser = async (req, res) => {
 		console.log(error);
 		res.json({
 			success: false,
-			message: 'found some error while getting user',
+			message: 'Found some error while getting user',
 		});
 	}
 };
@@ -229,7 +229,7 @@ exports.getAllUser = async (req, res) => {
 		console.log(error);
 		res.json({
 			success: false,
-			message: 'found some error while getting user',
+			message: 'Found some error while getting user',
 		});
 	}
 };
